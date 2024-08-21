@@ -1,10 +1,9 @@
 ### Programmschnipsel GUI
 #   Author: Kriger
 #   Hier wird die Menüführung aufgebaut
-
 wahl_menu=0
 wahl_einheit=0
-
+    
 while(wahl_menu!="x"):
     print("-------"*9)
     print("Umrechner von Einheiten - Imperial zu Metrisch und umgekehrt")
@@ -14,12 +13,12 @@ while(wahl_menu!="x"):
     print("2 - Umrechnung von Metrisch zu Imperial")
     print("x - Umrechner beenden")
     print("-------"*9)
-    wahl_menu=input("Ihre Wahl: ")
+    wahl_menu=str(input("Ihre Wahl: "))
     print("-------"*9)
     
-    if(int(wahl_menu)!=1 and int(wahl_menu)!=2):
+    if(wahl_menu!="1" and wahl_menu!="2"):
         break
-    elif(int(wahl_menu)==1):
+    elif(wahl_menu=="1"):
         print("Umrechner Imperial zu Metrisch")
         print("-------"*9)
         print("Wählen Sie Ihre umzurechnende Einheit:")
@@ -31,8 +30,14 @@ while(wahl_menu!="x"):
         print("5 - Fahrenheit (°F) zu Celsius (°C)")
         print("-------"*9)
         
+        wahl_einheit=str(input("Ihre Wahl: "))
+        if(wahl_einheit not in ("1","2","3","4","5")):
+            print("Falsche Eingabe!")
+            break
+        else:
+            print("Hallo")
         
-    elif(int(wahl_menu)==2):
+    elif(wahl_menu=="2"):
         print("Umrechner Metrisch zu Imperial")
         print("-------"*9)
         print("Wählen Sie Ihre umzurechnende Einheit:")
@@ -43,8 +48,14 @@ while(wahl_menu!="x"):
         print("4 - Liter (l) zu Gallonen (gal)")
         print("5 - Celsius (°C) zu Fahrenheit (°F)")
         print("-------"*9)
-
+        
+        wahl_einheit=str(input("Ihre Wahl: "))
+        if(wahl_einheit not in ("1","2","3","4","5")):
+            print("Falsche Eingabe!")
+            break
+        else:
+            print("-------"*9)
+            
     else:
         print("Falsche Eingaben wurden getätigt")
-        
-    print("TEST")
+    
