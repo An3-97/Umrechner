@@ -1,6 +1,7 @@
-### Programmschnipsel GUI
+### Programm Einheiten Umrechner
+#	Rechnet imperiale Einheiten in metrische Einheiten um und umgekehrt
 #   Author: Kriger, Scheele
-#   Zeit und Variablen festlegen
+#   Zeit Bibliothek importieren und Variablen festlegen
 import time
 wahl_menu=0
 wahl_einheit=0
@@ -34,13 +35,17 @@ while(wahl_menu!="x"):
     print("-------"*9)
     wahl_menu=str(input("Ihre Wahl: "))
     print("-------"*9)
+    
 #------------------------------------------------------------------------
 #Umrechner Imperial zu Metrisch Untermenü
 #------------------------------------------------------------------------
+    
+    # Wenn Hauptmenü Auswahl weder 1 noch 2, beende das Programm
     if(wahl_menu!="1" and wahl_menu!="2"):
         print("Ende")
         print("-------"*9)
         break
+    # Wenn Hauptmenü Auswahl 1 ist, gebe Untermenü Imperial zu Metrisch aus
     elif(wahl_menu=="1"):
         print("Umrechner Imperial zu Metrisch")
         print("-------"*9)
@@ -55,13 +60,14 @@ while(wahl_menu!="x"):
         
         wahl_einheit=str(input("Ihre Wahl: "))
         
-#Eingabe der Imperialen Daten
-        
+        # Eingabe der Imperialen Daten
+        # Wenn Eingabe nicht die Werte in der Liste hat, gebe Fehler aus
         if(wahl_einheit not in ("1","2","3","4","5")):
             print("Falsche Eingabe!")
             break
         else:
             print("-------"*9)
+            # Falls in der try Abfolge ein Fehler auftritt (zb bei eingabe von Strings in einen float Wert, gebe Fehler aus, sonst setze Variablen
             try:
                 if(wahl_einheit == "1"):
                     in_num=float(input("Geben Sie Ihren umzurechnenden Wert ein: "))
@@ -76,12 +82,12 @@ while(wahl_menu!="x"):
             except:
                 print("Es wurde eine fehlerhafte Eingabe durchgeführt!")
 
-#Berechnung der Daten
             
             print("-------"*9) 
             print("Berechnung wird durchgeführt . . .")
             print("-------"*9)
             
+            # Berechnung der Daten mit den Umrechnungsfaktoren
             if(wahl_einheit =="1"):
                 cm_num = in_num * fkt_in_cm
             elif(wahl_einheit == "2"):
@@ -93,28 +99,23 @@ while(wahl_menu!="x"):
             elif(wahl_einheit == "5"):
                 c_num = (f_num - 32) * 5 / 9
             
-#Ausgabe Metrischen Daten
-            
+            #Ausgabe Metrischen Daten
             if(wahl_einheit =="1"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",cm_num,"cm")
                 print("-------"*9)
             elif(wahl_einheit == "2"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",km_num, "km")
                 print("-------"*9)
             elif(wahl_einheit == "3"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",kg_num, "kg")
                 print("-------"*9)
             elif(wahl_einheit == "4"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",l_num, "l")
                 print("-------"*9)
             elif(wahl_einheit == "5"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",c_num, "°C")
                 print("-------"*9)
+            # Warte 3 Sekunden für Übersichtlichkeit
             time.sleep(3)
             
                 
@@ -134,15 +135,16 @@ while(wahl_menu!="x"):
         print("5 - Celsius (°C) zu Fahrenheit (°F)")
         print("-------"*9)
 
-#Eingabe der metrischen Daten
-        
+        #Eingabe der metrischen Daten
         wahl_einheit=str(input("Ihre Wahl: "))
         
+        # Wenn Eingabe nicht die Werte in der Liste hat, gebe Fehler aus
         if(wahl_einheit not in ("1","2","3","4","5")):
             print("Falsche Eingabe!")
             break
         else:
             print("-------"*9)
+            # Falls in der try Abfolge ein Fehler auftritt (zb bei eingabe von Strings in einen float Wert, gebe Fehler aus, sonst setze Variablen
             try:
                 if(wahl_einheit == "1"):
                     cm_num=float(input("Geben Sie Ihren umzurechnenden Wert ein: "))
@@ -157,7 +159,7 @@ while(wahl_menu!="x"):
             except:
                 print("Es wurde eine fehlerhafte Eingabe durchgeführt!")
             
-#Berechnung der Daten            
+            #Berechnung der Daten            
             
             print("-------"*9) 
             print("Berechnung wird durchgeführt . . .")
@@ -174,28 +176,24 @@ while(wahl_menu!="x"):
             elif(wahl_einheit == "5"):
                 f_num = c_num * 1.8 + 32
 
-#Ausgabe der imperialen Daten
+            #Ausgabe der imperialen Daten
 
             if(wahl_einheit =="1"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",in_num,"inch")
                 print("-------"*9)
             elif(wahl_einheit == "2"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",mi_num, "mi")
                 print("-------"*9)
             elif(wahl_einheit == "3"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",lb_num, "lb")
                 print("-------"*9)
             elif(wahl_einheit == "4"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",gal_num, "gal")
                 print("-------"*9)
             elif(wahl_einheit == "5"):
-                print("-------"*9)
                 print("Dein Ergebnis lautet: ",f_num, "°F")
                 print("-------"*9)
+            # Warte 3 Sekunden für die Übersichtlichkeit
             time.sleep(3)
                 
     else:
